@@ -7,25 +7,36 @@ body, html {
     flex-direction: column;
     align-items: center;
     height: 100%;
+    width: 100%;
     color: #f8f8f2;
     font-family: 'Roboto', sans-serif;;
     background-color: #282a36;
 }
 
 a {text-decoration: none; color: #ff79c6;}
-header {margin-top: 10%;}
+header {margin: 10px 0;}
 
 main {
-   margin: auto;
+    width: 50%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
+#preview {
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    margin: 10px 0;
+}
 #select-image {
-    height: 40px;
-    width: 150px;
+    width: 50%;
     color: #f8f8f2;
     border: none;
     border-radius: 5px;
+    font-size: 15pt;
     font-weight: bold;
+    padding: 15px;
     box-shadow: 0 2px 0 #9c3535;
     background-color: #ff5555;
 }
@@ -35,7 +46,7 @@ main {
 
 footer {
     margin-top: auto;
-    margin-bottom: 10%;
+    margin-bottom: 10px;
 }
 @keyframes heart {
     from{transform: scale(.9);}

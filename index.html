@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="https://image.flaticon.com/icons/png/512/227/227033.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js"></script>
     <title>Mini Editor de Imagens</title>
 </head>
 <body>
@@ -15,13 +14,14 @@
     </header>
 
     <main>
-        <button id="select-image">
+        <button id="select-image" onclick="load()">
             <input type="file" id="photo-file">
             Selecionar Imagem
         </button>
+        <img id="preview">
     </main>
 
     <footer><p>Feito com <span class="love">💜</span> por <a href="https://github.com/DanielMAssis" target="_blank">Daniel Assis</a> ✌</p></footer>
-
+    <script src="js/script.js"></script>
 </body>
 </html>
