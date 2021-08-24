@@ -1,6 +1,6 @@
 const photoFile = document.getElementById('photo-file');
 let preview = document.getElementById('preview');
-let image = new Image();
+let image;
 
 function load(){photoFile.click();}
 
@@ -8,9 +8,12 @@ window.addEventListener('DOMContentLoaded', () => {
     photoFile.addEventListener('change', () => {
         let file = photoFile.files.item(0);
         let reader = new FileReader();
+
         reader.readAsDataURL(file);
         reader.onload = function(event){
+            image = new Image();
             image.src = event.target.result;
+            image.onload = onloadImage;
         }
     });
 });
@@ -61,7 +64,7 @@ Object.keys(events).forEach(eventName => {
 let canvas = document.createElement('canvas');
 let ctx = canvas.getContext('2d');
 
-image.onload = function () {
+function onloadImage() {
     const {width, height} = image;
     canvas.width = width;
     canvas.height = height;
