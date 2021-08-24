@@ -29,9 +29,10 @@ main {
     overflow: hidden;
     margin: 10px 0;
 }
-#select-image {
+button {
     width: 50%;
     color: #f8f8f2;
+    cursor: pointer;
     border: none;
     border-radius: 5px;
     font-size: 15pt;
@@ -40,9 +41,16 @@ main {
     box-shadow: 0 2px 0 #9c3535;
     background-color: #ff5555;
 }
-#select-image:active {transform: translateY(1px); box-shadow: 0 1px #9c3535;}
+button:active {transform: translateY(1px); box-shadow: 0 1px #9c3535;}
+#crop {display: none;}
 
 #photo-file {display: none;}
+
+#selection-tool {
+    position: fixed;
+    border: 2px dashed #50fa7b;
+    display: none;
+}
 
 footer {
     margin-top: auto;
