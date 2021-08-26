@@ -1,12 +1,14 @@
 const photoFile = document.getElementById('photo-file');
 let preview = document.getElementById('preview');
 let image;
+let photoName;
 
 function load(){photoFile.click();}
 
 window.addEventListener('DOMContentLoaded', () => {
     photoFile.addEventListener('change', () => {
         let file = photoFile.files.item(0);
+        photoName = file.name;
         let reader = new FileReader();
 
         reader.readAsDataURL(file);
@@ -82,7 +84,7 @@ cropBtn.onclick = () => {
     const {width: imgW, height: imgH} = image;
     const {width: prevW, height: prevH} = preview;
 
-    const [ widthFactor, heightFactor] = [+(imgW / prevW), +(imgH / prevH)];
+    const [widthFactor, heightFactor] = [+(imgW / prevW), +(imgH / prevH)];
 
     const [selectWidth, selectHeight] = [
         +selection.style.width.replace('px', ''),
@@ -112,4 +114,25 @@ cropBtn.onclick = () => {
 
     preview.src = canvas.toDataURL();
 
+}
+
+function download() {
+    const a = document.createElement('a');
+    a.download = photoName + '-edit.png';
+    a.href = canvas.toDataURL();
+    a.click();
+}
+
+function gray() {
+    ctx.filter = 'grayscale(100%)';
+    ctx.drawImage(preview, 0, 0, canvas.width, canvas.height);
+    preview.style.filter = 'grayscale(100%)';
+}
+
+function inv() {
+    preview.style.filter = 'invert(100%)';
+}
+
+function contra() {
+    preview.style.filter = 'contrast(200%)';
 }

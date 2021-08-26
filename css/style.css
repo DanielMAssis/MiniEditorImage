@@ -3,9 +3,6 @@
 *{margin: 0; padding: 0;}
 
 body, html {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     height: 100%;
     width: 100%;
     color: #f8f8f2;
@@ -13,39 +10,53 @@ body, html {
     background-color: #282a36;
 }
 
+body {
+    display: grid;
+    grid-template-columns: 20% 50% 30%;
+    grid-template-rows: 10% 85% 5%;
+}
+
 a {text-decoration: none; color: #ff79c6;}
-header {margin: 10px 0;}
+li {list-style: none;}
+header {padding: 10px 0; grid-column: 1 / 4; text-align: center;}
+
+aside {grid-row: 2 / 3;}
 
 main {
-    width: 50%;
-    height: 85%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    grid-column: 2 / 4;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 5% 95%;
 }
+
 #preview {
-    width: auto;
-    height: auto;
-    overflow: hidden;
-    margin: 10px 0;
+    max-width: 100%;
+    height: 95%;
+    grid-column: 1 / 4;
+    grid-row: 2;
 }
-button {
-    width: 50%;
-    color: #f8f8f2;
+
+#filters {
+    height: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+li {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
     cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    font-size: 15pt;
-    font-weight: bold;
-    padding: 15px;
-    box-shadow: 0 2px 0 #9c3535;
-    background-color: #ff5555;
+    text-shadow: 0 1px #282a36;
+    border: 1px solid #f8f8f2;
+    background-image: url(../demo.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
-button:active {transform: translateY(1px); box-shadow: 0 1px #9c3535;}
+
 #crop {display: none;}
-
 #photo-file {display: none;}
-
 #selection-tool {
     position: fixed;
     border: 2px dashed #50fa7b;
@@ -53,8 +64,9 @@ button:active {transform: translateY(1px); box-shadow: 0 1px #9c3535;}
 }
 
 footer {
-    margin-top: auto;
-    margin-bottom: 10px;
+    padding: 5px 0;
+    text-align: center;
+    grid-column: 1 / 4;
 }
 @keyframes heart {
     from{transform: scale(.9);}

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="https://image.flaticon.com/icons/png/512/227/227033.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Mini Editor de Imagens</title>
 </head>
@@ -13,13 +14,29 @@
         <h1>Mini Editor de Imagens</h1>
     </header>
 
+    <aside>
+        <ul id="filters">
+            <li onclick="()">Nenhum</li>
+            <li onclick="()">Blur</li>
+            <li onclick="()">Brilho</li>
+            <li onclick="()">Contraste</li>
+            <li onclick="()">Escala Cinza</li>
+            <li onclick="()">Matiz</li>
+            <li onclick="()">Inverter</li>
+            <li onclick="()">Opacidade</li>
+            <li onclick="()">Saturação</li>
+            <li onclick="()">Sépia</li>
+        </ul>
+    </aside>
+
     <main>
         <button id="select-image" onclick="load()">
             <input type="file" id="photo-file">
-            Selecionar Imagem
+            <i class="fas fa-upload"></i> Selecionar Imagem
         </button>
+        <button id="crop"><i class="fas fa-crop"></i> Cortar</button>
+        <button id="download" onclick="download()"><i class="fas fa-download"></i> Download</button>
         <img id="preview" draggable="false">
-        <button id="crop">Cortar Imagem</button>
         <div id="selection-tool"></div>
     </main>
 
