@@ -16,16 +16,16 @@
 
     <aside>
         <ul id="filters">
-            <li onclick="()">Nenhum</li>
-            <li onclick="()">Blur</li>
-            <li onclick="()">Brilho</li>
-            <li onclick="()">Contraste</li>
-            <li onclick="()">Escala Cinza</li>
-            <li onclick="()">Matiz</li>
-            <li onclick="()">Inverter</li>
-            <li onclick="()">Opacidade</li>
-            <li onclick="()">Saturação</li>
-            <li onclick="()">Sépia</li>
+            <li value="1" onclick="filters(this)"><p id="backF-1">Nenhum</p></li>
+            <li value="2" onclick="filters(this)"><p id="backF-2">Blur</p></li>
+            <li value="3" onclick="filters(this)"><p id="backF-3">Brilho</p></li>
+            <li value="4" onclick="filters(this)"><p id="backF-4">Contraste</p></li>
+            <li value="5" onclick="filters(this)"><p id="backF-5">Escala Cinza</p> </li>
+            <li value="6" onclick="filters(this)"><p id="backF-6">Matiz</p></li>
+            <li value="7" onclick="filters(this)"><p id="backF-7">Inverter</p></li>
+            <li value="8" onclick="filters(this)"><p>Opacidade</p></li>
+            <li value="9" onclick="filters(this)"><p id="backF-9">Saturação</p></li>
+            <li value="10" onclick="filters(this)"><p id="backF-10">Sépia</p></li>
         </ul>
     </aside>
 
@@ -34,8 +34,8 @@
             <input type="file" id="photo-file">
             <i class="fas fa-upload"></i> Selecionar Imagem
         </button>
-        <button id="crop"><i class="fas fa-crop"></i> Cortar</button>
-        <button id="download" onclick="download()"><i class="fas fa-download"></i> Download</button>
+        <button id="crop" disabled><i class="fas fa-crop"></i> Cortar</button>
+        <button id="download" onclick="download()" disabled><i class="fas fa-download"></i> Download</button>
         <img id="preview" draggable="false">
         <div id="selection-tool"></div>
     </main>

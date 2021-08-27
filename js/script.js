@@ -54,7 +54,7 @@ const events = {
         relativeEndX = event.layerX;
         relativeEndY = event.layerY;
 
-        cropBtn.style.display = 'initial';
+        cropBtn.disabled = false;
     }
 }
 
@@ -65,17 +65,21 @@ Object.keys(events).forEach(eventName => {
 
 let canvas = document.createElement('canvas');
 let ctx = canvas.getContext('2d');
+let filterLoad = false;
 
 function onloadImage() {
     const {width, height} = image;
     canvas.width = width;
     canvas.height = height;
+    filterLoad = true;
 
     ctx.clearRect(0, 0, width, height);
 
     ctx.drawImage(image, 0, 0);
 
     preview.src = canvas.toDataURL();
+    cropBtn.disabled = true;
+    document.getElementById('download').disabled = false;
 }
 
 const cropBtn = document.getElementById('crop');
@@ -123,16 +127,69 @@ function download() {
     a.click();
 }
 
-function gray() {
-    ctx.filter = 'grayscale(100%)';
-    ctx.drawImage(preview, 0, 0, canvas.width, canvas.height);
-    preview.style.filter = 'grayscale(100%)';
-}
-
-function inv() {
-    preview.style.filter = 'invert(100%)';
-}
-
-function contra() {
-    preview.style.filter = 'contrast(200%)';
+function filters(x){
+    let value = x.value;
+    
+    if(filterLoad){
+        switch(value) {
+            case 1:
+                ctx.filter = 'none';
+                ctx.drawImage(preview, 0, 0, canvas.width, canvas.height);
+                preview.style.filter = 'none';
+                break;
+    
+            case 2:
+                ctx.filter = 'blur(5px)';
+                ctx.drawImage(preview, 0, 0, canvas.width, canvas.height);
+                preview.style.filter = 'blur(5px)';
+                break;
+    
+            case 3:
+                ctx.filter = 'brightness(150%)';
+                ctx.drawImage(preview, 0, 0, canvas.width, canvas.height);
+                preview.style.filter = 'brightness(150%)';
+                break;
+            case 4:
+                ctx.filter = 'contrast(150%)';
+                ctx.drawImage(preview, 0, 0, canvas.width, canvas.height);
+                preview.style.filter = 'contrast(150%)';
+                break;
+    
+            case 5:
+                ctx.filter = 'grayscale(100%)';
+                ctx.drawImage(preview, 0, 0, canvas.width, canvas.height);
+                preview.style.filter = 'grayscale(100%)';
+                break;
+    
+            case 6:
+                ctx.filter = 'hue-rotate(90deg)';
+                ctx.drawImage(preview, 0, 0, canvas.width, canvas.height);
+                preview.style.filter = 'hue-rotate(90deg)';
+                break;
+    
+            case 7:
+                ctx.filter = 'invert(100%)';
+                ctx.drawImage(preview, 0, 0, canvas.width, canvas.height);
+                preview.style.filter = 'invert(100%)';
+                break;
+    
+            case 8:
+                ctx.filter = 'opacity(70%)';
+                ctx.drawImage(preview, 0, 0, canvas.width, canvas.height);
+                preview.style.filter = 'opacity(70%)';
+                break;
+    
+            case 9:
+                ctx.filter = 'saturate(150%)';
+                ctx.drawImage(preview, 0, 0, canvas.width, canvas.height);
+                 preview.style.filter = 'saturate(150%)';
+                break;
+    
+            case 10:
+                ctx.filter = 'sepia(100%)';
+                ctx.drawImage(preview, 0, 0, canvas.width, canvas.height);
+                preview.style.filter = 'sepia(100%)';
+                break;
+        }
+    }
 }
