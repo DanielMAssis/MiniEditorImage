@@ -1,5 +1,5 @@
 # MiniEditorImage
-Teste a demo [aqui]().
+Teste a demo [aqui](https://danielmassis.github.io/MiniEditorImage/).
 
 # Descrição
 Editor de imagem simples com funções de cortar e aplicar filtros nas imagens.
